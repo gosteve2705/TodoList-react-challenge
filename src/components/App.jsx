@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import List from "./List";
 function App() {
-  var isClicked = false;
   const [input, setInput] = useState("");
   const [items, setItems] = useState([]);
 
@@ -34,7 +33,7 @@ function App() {
       <div>
         <ul>
           {items.map(item => {
-            return <List item={item} isClicked={isClicked} />;
+            return <List item={item} />;
           })}
         </ul>
       </div>
