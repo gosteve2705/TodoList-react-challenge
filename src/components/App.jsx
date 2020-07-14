@@ -1,22 +1,21 @@
-import React from "react";
-
+import React, { useState } from "react";
+import List from "./List";
 function App() {
-  
+  var isClicked = false;
   const [input, setInput] = useState("");
-  const [items,setItems] = useState([]);
+  const [items, setItems] = useState([]);
+
   function handleChange(event) {
     const newValue = event.target.value;
-    
+
     setInput(newValue);
-    
-    
   }
   function addItems(event) {
-   setItems(prevValue=>{
-     return [...prevValue,input]
-   });
+    setItems(prevValue => {
+      return [...prevValue, input];
+    });
     event.preventDefault();
-    setInput('');
+    setInput("");
   }
 
   return (
@@ -35,14 +34,12 @@ function App() {
       <div>
         <ul>
           {items.map(item => {
-            return <li>{item} </li>;
+            return <List item={item} isClicked={isClicked} />;
           })}
-          
         </ul>
       </div>
     </div>
   );
 }
-
 
 export default App;
